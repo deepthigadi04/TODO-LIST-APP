@@ -1,0 +1,255 @@
+<html><head>
+    <script src="https://kit.fontawesome.com/66e044b8f2.js" crossorigin="anonymous"></script>
+    <script>
+      function buildlist(listName,labelName){
+      var controls = document.getElementsByName(listName);
+      var label = document.getElementsByName(labelName);
+      label.value = '';
+    for(var i=0;i<controls.length;i++){
+       label.value += controls[i].value.toString()+',';
+    }
+  }
+    </script>
+    <style>
+      body{
+        margin: 20px;
+      background: #73a5ba; /* fallback for old browsers */
+      background: -webkit-linear-gradient(
+        to right,
+        #8bb7c9,
+        #76b4c9,
+        #7dbeda
+      ); /* Chrome 10-25, Safari 5.1-6 */
+      background: linear-gradient(
+        to right,
+        #80c1dd,
+        #9bdbf0,
+        #76a7bc
+      );
+      }
+  
+      div.desc{
+        margin-left: 2%;
+        margin-top: 3%;
+       
+      }
+      div.button6{
+        margin-left: -20%;
+        margin-top: -1%;
+        
+       }
+       button.button2{
+        border-radius: 12%;
+        size: 12px;
+        border-spacing: 10%;
+        border-left: 10%;
+        padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    border-style: solid;
+    font-weight:10% ;
+   
+       }
+       
+  button.button3{
+        border-radius: 12%;
+        size: 12px;
+        border-spacing: 10%;
+        border-left: 10%;
+        padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    border-style: solid;
+    font-weight:10% ;
+       }
+      
+  form input{
+        border-color: black;
+        border: none;
+        outline: none;
+        padding: 0 5px;
+        color: black;
+        box-shadow: -3px 6px 4px #222;
+  }
+      div.button7{
+        margin-right: -20%;
+        margin-top: -8%;
+      }
+      div.task{
+        margin-left: -30%;
+        margin-top: 5%;
+       
+      }
+      div.date{
+        margin-right: -30%;
+        margin-top: -4%;
+       
+      }
+      center.body1{
+        border: 2px solid black;
+        margin-top: 4%;
+        margin-left: 20%;
+        margin-right: 20%;
+      }
+     
+      .container {
+    display: block;
+    position: relative;
+  
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    
+  }
+  
+  /* Hide the browser's default checkbox */
+  .container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  /* Create a custom checkbox */
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .container:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+  
+  /* When the checkbox is checked, add a blue background */
+  .container input:checked ~ .checkmark {
+    background-color: #2196F3;
+  }
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the checkmark when checked */
+  .container input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the checkmark/indicator */
+  .container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+  button.button10{
+        border-radius: 12%;
+        size: 12px;
+        border-spacing: 10%;
+        border-left: 10%;
+        padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    border-style: solid;
+    font-weight:10% ;
+  }
+  center.checkboxcenter{
+    margin-top:4%;
+    text-align: left;
+    margin-left: 20%;
+    margin-right: 18%;
+    border: 2px solid black;
+    padding: 10px;
+    padding-bottom: 20px;
+    border-radius: 10px;
+  }
+    </style>
+    
+  </head>
+  <body>
+    <center class="body1">
+  
+     <h1>TO DO LIST</h1> 
+            <form action="/create-task" method="POST">
+      
+              <table class="table">
+                  <thead>
+                    <tr class="table-active">
+                      <th >ADD TO-DO</th>
+                      <th >CATEGORY</th>
+                      <th >DATE</th>
+                    </tr>
+                  </thead>
+        
+                  <tbody>
+                      <tr>
+                        <td> <input type="text" name="description"placeholder="ADD TO-DO......" required></input></th>
+                        <td >  <select name="category" required>
+  
+                          <option>PERSONAL</option>
+                          <option>WORK</option>
+                          <option>EDUCATION</option>
+                          <option>SCHOOL</option>
+                          <option>OFFICE</option>
+                          <option>OTHER</option>
+                      </select></th>
+                        <td > <input type="date" name="date"></th>
+                          <td> <button type="submit">ADD TO-DO</button></td>
+                      </tr>
+                  </tbody>
+              </table>      
+    </form>
+  </section>               
+    <form action="/delete-task" method="GET">
+      <table class="table">
+          <thead>
+              <tr>
+                <th>Select</th>
+                <th>Task</th>
+                <th>Category</th>
+              <th>Due Date</th>
+              </tr>
+            </thead>
+    <% for(let i of task) { %>
+      <tr>
+        <td> <input type="checkbox" name="<%= i._id %>" :></td>
+        <td> <p id="task-description"><%= i.description %>:</td>
+         <td><p id="task-category"></p> <%= i.category %>:</td>
+        <% if(i.date) { %>
+         <td><p id="task-date"></p><%= i.date %></td>
+       <% } else { %>
+         <td><p>No due date</p></td>
+       <% } %>
+  <% } %>
+      </tr>
+      </table>
+      <div  align = "center"><input type="submit" class="btn btn-danger" value="DELETE TASK">
+      </div>
+    </form>  
+  </center>
+  </body>
+  </html>
